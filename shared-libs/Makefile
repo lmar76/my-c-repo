@@ -1,11 +1,27 @@
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -fPIC
+LDFLAGS = -shared
+LIBFILE = libmylib.so
+OBJECTS = mylib.o
+HEADERS = mylib.h
+BASEDIR = /opt/mylib
+INCLUDEDIR = $(addprefix $(BASEDIR)/,include)
+LIBDIR = $(addprefix $(BASEDIR)/,lib)
 
-test: main.c mylib.c
-	$(CC) $(CFLAGS) -fPIC -c mylib.c -o mylib.o
-	$(CC) -shared mylib.o -o libmylib.so
-	$(CC) $(CFLAGS) main.c -o test
+$(LIBFILE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:
-	rm -f test libmylib.so mylib.o
+	rm -f $(LIBFILE) $(OBJECTS)
+
+install:
+	mkdir -p $(INCLUDEDIR)
+	mkdir -p $(LIBDIR)
+	install -t $(INCLUDEDIR) $(HEADERS)
+	install -t $(LIBDIR) $(LIBFILE)
+
+uninstall:
+	rm -fr $(BASEDIR)
+
+.PHONY: clean install uninstall
 
