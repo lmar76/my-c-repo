@@ -67,7 +67,7 @@ Run the program:
 
 ## Uninstall the shared library
 
-CHange directory to the one containing `mylib` sourc files and run:
+Change directory to the one containing `mylib` sourc files and run:
 
 ```
 sudo make uninstall
