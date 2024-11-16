@@ -3,3 +3,6 @@ main
 
 # tests
 test/
+
+# VSCode
+*.code-workspace
