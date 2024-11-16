@@ -17,13 +17,11 @@ gcc -Wall -fPIC -shared -o libmylib.so mylib.c
 
 where:
 
-- `-Wall` is a warning option turning on many warning flags (see [Warning
-  Options]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Warning-Options.html>)
-- `-fPIC` is an option for creating shared libraries (see [Code Generation
-  Options]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Code-Gen-Options.html>)
+- `-Wall` is a warning option turning on many warning flags (see [Warning Options][1])
+- `-fPIC` is an option for creating shared libraries (see [Code Generation Options][2])
 - `-shared`: is an option for the linker allowing to generate a shared object
   which can be linked with other objects to form an executable (see [Link
-  Options]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Link-Options.html>).
+  Options][3]).
 
 The command generates the `libmylib.so` file.
 
@@ -76,9 +74,8 @@ gcc -o test -I /opt/mylib/include -L /opt/mylib/lib -l mylib test.c
 where:
 
 - `-I` adds the specified directory to the list of directories to be searched
-  for header files during preprocessing (see [Directory Options]:
-  <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Directory-Options.html>)
-- `-l` search the named library when linking (see [Link Options])
+  for header files during preprocessing (see [Directory Options][4])
+- `-l` search the named library when linking (see [Link Options][3])
 - `-L` adds the specified directory to the list of directories to be searched
   for the one specified by `-l`.
 
@@ -155,9 +152,8 @@ gcc test.c -I /opt/mylib/include -L /opt/mylib/lib -l mylib -o test
 where:
 
 - `-I` adds the specified directory to the list of directories to be searched
-  for header files during preprocessing (see [Directory Options]:
-  <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Directory-Options.html>)
-- `-l` search the named library when linking (see [Link Options])
+  for header files during preprocessing (see [Directory Options][4])
+- `-l` search the named library when linking (see [Link Options][3])
 - `-L` adds the specified directory to the list of directories to be searched
   for the one specified by `-l`.
 
@@ -174,3 +170,13 @@ Run the program:
 #### Manually
 
 Remove `/opt/mylib` and its contents.
+
+[//]: # (References)
+
+[1]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Warning-Options.html>
+
+[2]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Code-Gen-Options.html>
+
+[3]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Link-Options.html>
+
+[4]: <https://gcc.gnu.org/onlinedocs/gcc-14.2.0/gcc/Directory-Options.html>
