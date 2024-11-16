@@ -27,7 +27,7 @@ The command generates the `libmylib.so` file.
 
 #### Using `make`
 
-Build `mylib` shared library.
+Build `mylib` shared library:
 
 ```text
 make
@@ -68,7 +68,7 @@ Copy the `test.c` file into `/tmp` and go to that directory.
 Build `test` executable:
 
 ```text
-gcc -o test -I /opt/mylib/include -L /opt/mylib/lib -l mylib test.c
+gcc -I /opt/mylib/include -L /opt/mylib/lib -l mylib -o test test.c
 ```
 
 where:
@@ -77,7 +77,7 @@ where:
   for header files during preprocessing (see [Directory Options][4])
 - `-l` search the named library when linking (see [Link Options][3])
 - `-L` adds the specified directory to the list of directories to be searched
-  for the one specified by `-l`.
+  for the one specified by `-l` (see [Directory Options][4]).
 
 This command generates the `test` executable file.
 
@@ -116,7 +116,7 @@ sudo make uninstall
 Compile `mylib` source code `mylib.c`:
 
 ```text
-gcc -Wall -c -o mylib.o mylib.c
+gcc -c -Wall -o mylib.o mylib.c
 ```
 
 Create the static library:
@@ -155,7 +155,9 @@ where:
   for header files during preprocessing (see [Directory Options][4])
 - `-l` search the named library when linking (see [Link Options][3])
 - `-L` adds the specified directory to the list of directories to be searched
-  for the one specified by `-l`.
+  for the one specified by `-l` (see [Directory Options][4]).
+
+> Note: I was forced to put `test.c` right after `gcc`.
 
 This command generates the `test` executable file.
 
