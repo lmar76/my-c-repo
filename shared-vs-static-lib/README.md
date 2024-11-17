@@ -125,6 +125,12 @@ Create the static library:
 ar rcs libmylib.a mylib.o
 ```
 
+Where:
+
+- `r` inserts the file into the archive with replacement
+- `c` creates the archive
+- `s` write an object file into the archive.
+
 The static library is just an archive containing the object file.
 
 ### Install the static library
